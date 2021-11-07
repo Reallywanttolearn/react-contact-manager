@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 
+//komponen AddPerson 
 function AddPersonForm(props) {
   const [ person, setPerson ] = useState('');
     
@@ -26,7 +27,7 @@ function AddPersonForm(props) {
     </form>
   );
 }
-
+//komponen PeopleList
 function PeopleList(props) {
   const arr = props.data;
   const listItems = arr.map((val, index) =>
@@ -34,7 +35,7 @@ function PeopleList(props) {
   );
   return <ul>{listItems}</ul>;
 }
-
+//parrent component
 function ContactManager(props) {
   const [contacts, setContacts] = useState(props.data);
 
@@ -44,6 +45,7 @@ function ContactManager(props) {
 
   return (
     <div>
+      <h1>Contact Manager</h1>
       <AddPersonForm handleSubmit={addPerson} />
       <PeopleList data={contacts} />
     </div>
